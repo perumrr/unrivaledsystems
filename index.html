@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unrivaled Systems — Rebuilt PCs, Grand Rapids MI</title>
+<meta name="description" content="Unrivaled Systems buys used computer parts and rebuilds them into full, tested PCs. Based in Michigan, serving Grand Rapids, Lansing, and Ann Arbor.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#000000;
+    --white:#ffffff;
+    --line:#e2e2e2;
+    --gray:#6b6b6b;
+    --gray-light:#f4f4f4;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--white);
+    color:var(--black);
+    font-family:'Inter',sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  h1,h2,h3{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    letter-spacing:-0.01em;
+    line-height:1.08;
+  }
+  .mono{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.8rem;
+    letter-spacing:0.02em;
+  }
+  .wrap{
+    max-width:1080px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  /* ===== Header ===== */
+  header{
+    position:sticky;
+    top:0;
+    background:var(--white);
+    border-bottom:1px solid var(--line);
+    z-index:10;
+  }
+  .header-inner{
+    max-width:1080px;
+    margin:0 auto;
+    padding:20px 32px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .logo{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    font-size:1.05rem;
+    letter-spacing:-0.01em;
+  }
+  nav{display:flex;gap:28px;}
+  nav a{
+    font-size:0.9rem;
+    color:var(--gray);
+    transition:color .15s ease;
+  }
+  nav a:hover{color:var(--black);}
+  .header-cta{
+    font-size:0.85rem;
+    border:1px solid var(--black);
+    padding:8px 16px;
+    white-space:nowrap;
+  }
+  .header-cta:hover{background:var(--black);color:var(--white);}
+
+  /* ===== Hero ===== */
+  .hero{
+    padding:90px 0 70px;
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:48px;
+    align-items:center;
+  }
+  .hero h1{
+    font-size:clamp(2.4rem,5vw,3.6rem);
+    max-width:11ch;
+  }
+  .hero p{
+    margin-top:24px;
+    max-width:38ch;
+    font-size:1.05rem;
+    color:#333;
+  }
+  .hero-ctas{
+    margin-top:36px;
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .btn{
+    display:inline-block;
+    font-size:0.92rem;
+    padding:14px 24px;
+    border:1px solid var(--black);
+  }
+  .btn-solid{
+    background:var(--black);
+    color:var(--white);
+  }
+  .btn-solid:hover{background:#222;}
+  .btn-outline:hover{background:var(--black);color:var(--white);}
+  .hero-art{width:100%;height:auto;}
+
+  /* ===== Section shell ===== */
+  section{
+    border-top:1px solid var(--line);
+    padding:64px 0;
+  }
+  .section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:24px;
+    margin-bottom:36px;
+    flex-wrap:wrap;
+  }
+  .section-head h2{
+    font-size:clamp(1.6rem,3vw,2.1rem);
+  }
+  .section-head .sub{
+    color:var(--gray);
+    max-width:34ch;
+    font-size:0.95rem;
+  }
+
+  /* ===== Mission ===== */
+  .mission-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:48px;
+  }
+  .mission-grid p{
+    font-size:1.05rem;
+  }
+  .mission-grid p + p{margin-top:18px;}
+
+  /* ===== What we do ===== */
+  .offer-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .offer-card{
+    background:var(--white);
+    padding:32px 28px;
+  }
+  .offer-card h3{
+    font-size:1.15rem;
+    margin-bottom:10px;
+  }
+  .offer-card p{
+    color:var(--gray);
+    font-size:0.94rem;
+  }
+
+  /* ===== Builds ===== */
+  .builds-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .build-card{
+    background:var(--white);
+    padding:28px 26px;
+    display:flex;
+    flex-direction:column;
+  }
+  .build-tag{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.72rem;
+    color:var(--gray);
+    text-transform:uppercase;
+    margin-bottom:14px;
+  }
+  .build-card h3{
+    font-size:1.15rem;
+    margin-bottom:12px;
+  }
+  .build-specs{
+    list-style:none;
+    font-size:0.88rem;
+    color:#333;
+    margin-bottom:16px;
+  }
+  .build-specs li{
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    padding:6px 0;
+    border-top:1px solid var(--line);
+  }
+  .build-specs li:first-child{border-top:none;}
+  .build-specs span:first-child{color:var(--gray);}
+  .build-note{
+    font-size:0.88rem;
+    color:#333;
+    margin-top:auto;
+  }
+  .builds-foot{
+    margin-top:20px;
+    font-size:0.85rem;
+    color:var(--gray);
+  }
+
+  /* ===== Process ===== */
+  .process-list{
+    display:flex;
+    flex-direction:column;
+  }
+  .process-item{
+    display:grid;
+    grid-template-columns:64px 1fr;
+    gap:24px;
+    padding:26px 0;
+    border-top:1px solid var(--line);
+  }
+  .process-item:first-child{border-top:none;}
+  .process-num{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.95rem;
+    color:var(--gray);
+    padding-top:2px;
+  }
+  .process-item h3{
+    font-size:1.1rem;
+    margin-bottom:6px;
+  }
+  .process-item p{
+    color:#333;
+    font-size:0.95rem;
+    max-width:56ch;
+  }
+
+  /* ===== Areas ===== */
+  .areas-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:48px;
+    align-items:start;
+  }
+  .city-list{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+  }
+  .city-row{
+    display:flex;
+    justify-content:space-between;
+    padding:16px 0;
+    border-top:1px solid var(--line);
+    font-family:'Space Grotesk',sans-serif;
+    font-size:1.15rem;
+  }
+  .city-row:first-child{border-top:none;}
+  .city-row span:last-child{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.8rem;
+    color:var(--gray);
+    align-self:center;
+  }
+
+  /* ===== Contact ===== */
+  .contact{
+    background:var(--black);
+    color:var(--white);
+    border-top:none;
+  }
+  .contact .wrap{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:48px;
+    align-items:center;
+  }
+  .contact h2{color:var(--white);font-size:clamp(1.8rem,3.4vw,2.4rem);}
+  .contact p{color:#c9c9c9;margin-top:16px;max-width:42ch;}
+  .contact-box{
+    border:1px solid #333;
+    padding:32px;
+  }
+  .contact-box .mono{color:#999;display:block;margin-bottom:6px;}
+  .contact-box .email{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:1.3rem;
+    display:block;
+    margin-bottom:24px;
+    word-break:break-all;
+  }
+  .contact-box .btn-solid{
+    background:var(--white);
+    color:var(--black);
+    border-color:var(--white);
+    width:100%;
+    text-align:center;
+  }
+  .contact-box .btn-solid:hover{background:#eee;}
+
+  /* ===== Footer ===== */
+  footer{
+    padding:28px 0 40px;
+  }
+  .footer-inner{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:12px;
+    font-size:0.85rem;
+    color:var(--gray);
+  }
+
+  /* ===== Responsive ===== */
+  @media (max-width:760px){
+    .hero{grid-template-columns:1fr;padding-top:56px;}
+    .hero-art{order:-1;max-width:220px;margin:0 auto 12px;}
+    .mission-grid,.offer-grid,.areas-grid,.contact .wrap{grid-template-columns:1fr;}
+    .offer-grid{border:none;background:none;gap:24px;}
+    .offer-card{border:1px solid var(--line);}
+    nav{display:none;}
+    .section-head{flex-direction:column;align-items:flex-start;}
+  }
+
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--black);
+    outline-offset:3px;
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">UNRIVALED SYSTEMS</div>
+    <nav>
+      <a href="#mission">Mission</a>
+      <a href="#offer">What we do</a>
+      <a href="#builds">Builds</a>
+      <a href="#process">Process</a>
+      <a href="#areas">Areas</a>
+      <a href="[FACEBOOK_LINK_PLACEHOLDER]" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <a class="header-cta" href="#contact">Get in touch</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero" style="border-top:none;">
+    <div class="wrap" style="display:grid;grid-template-columns:1.1fr 0.9fr;gap:48px;align-items:center;width:100%;">
+      <div>
+        <h1>Built from what<br>others left behind.</h1>
+        <p>We buy working computer parts off Facebook Marketplace, eBay, and local sellers, then rebuild them into full, tested PCs — for less than new, and without the waste.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-solid" href="mailto:unrivaledcomputers@gmail.com?subject=Custom%20build%20inquiry">Request a custom build</a>
+          <a class="btn btn-outline" href="#offer">See what we do</a>
+        </div>
+      </div>
+      <svg class="hero-art" viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <g fill="none" stroke="#000" stroke-width="1.5">
+          <rect x="90" y="40" width="130" height="230" rx="2"></rect>
+          <line x1="90" y1="80" x2="220" y2="80"></line>
+          <line x1="90" y1="120" x2="220" y2="120"></line>
+          <rect x="106" y="94" width="60" height="14"></rect>
+          <circle cx="204" cy="101" r="7"></circle>
+          <rect x="106" y="140" width="98" height="46"></rect>
+          <rect x="106" y="196" width="46" height="46"></rect>
+          <rect x="160" y="196" width="44" height="20"></rect>
+          <rect x="160" y="222" width="44" height="20"></rect>
+          <circle cx="132" cy="252" r="9"></circle>
+          <line x1="90" y1="272" x2="220" y2="272"></line>
+        </g>
+        <g fill="none" stroke="#b3b3b3" stroke-width="1.2" stroke-dasharray="3 4">
+          <rect x="40" y="150" width="34" height="34"></rect>
+          <line x1="74" y1="167" x2="106" y2="163"></line>
+          <rect x="246" y="70" width="46" height="30"></rect>
+          <line x1="246" y1="90" x2="220" y2="100"></line>
+          <rect x="238" y="200" width="40" height="40"></rect>
+          <line x1="238" y1="220" x2="204" y2="216"></line>
+          <rect x="60" y="230" width="30" height="20"></rect>
+          <line x1="90" y1="240" x2="106" y2="238"></line>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <section id="mission">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Good hardware doesn't stop working<br>just because someone lists it for parts.</h2>
+      </div>
+      <div class="mission-grid">
+        <div>
+          <p>Every day, working CPUs, GPUs, and motherboards get listed for cheap — upgraded out, cleared from an office, or sold because someone doesn't know what they have. Most of it still runs fine.</p>
+          <p>We track those listings across Michigan and beyond, buy the parts worth saving, and put them back to work instead of letting them sit in a drawer or a landfill.</p>
+        </div>
+        <div>
+          <p>Unrivaled Systems exists so people can get a genuinely good computer without paying new-hardware markup, and without adding to the pile of electronics nobody's using.</p>
+          <p>Every machine we sell is tested and stands behind itself — not a mystery box of parts, a rebuilt system we'd use ourselves.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="offer">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>What we do</h2>
+        <div class="sub">Three things, done in this order, every time.</div>
+      </div>
+      <div class="offer-grid">
+        <div class="offer-card">
+          <h3>Source</h3>
+          <p>We buy individual parts — not pre-built systems — from Facebook Marketplace, eBay, and local sellers around Michigan.</p>
+        </div>
+        <div class="offer-card">
+          <h3>Rebuild</h3>
+          <p>Parts are cleaned, matched for compatibility, and assembled into complete desktops built around what each buyer actually needs.</p>
+        </div>
+        <div class="offer-card">
+          <h3>Sell direct</h3>
+          <p>No storefront markup. Builds are priced around what's in them, sold straight to the person who's going to use them.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="builds">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Recent builds</h2>
+        <div class="sub">A sample of the kind of systems we put together. Every build is different, since it depends on what parts come in.</div>
+      </div>
+      <div class="builds-grid">
+        <div class="build-card">
+          <span class="build-tag">Everyday / office</span>
+          <h3>The Daily Driver</h3>
+          <ul class="build-specs">
+            <li><span>CPU</span><span>Intel i5, 6-core</span></li>
+            <li><span>RAM</span><span>16GB DDR4</span></li>
+            <li><span>Storage</span><span>512GB SSD</span></li>
+            <li><span>GPU</span><span>Integrated</span></li>
+          </ul>
+          <p class="build-note">Built for browsing, office work, and streaming — quiet and reliable.</p>
+        </div>
+        <div class="build-card">
+          <span class="build-tag">Gaming</span>
+          <h3>The 1440p Build</h3>
+          <ul class="build-specs">
+            <li><span>CPU</span><span>AMD Ryzen 5, 6-core</span></li>
+            <li><span>RAM</span><span>16GB DDR4</span></li>
+            <li><span>Storage</span><span>1TB SSD</span></li>
+            <li><span>GPU</span><span>8GB, mid-range</span></li>
+          </ul>
+          <p class="build-note">Handles current games at 1440p without needing top-tier parts.</p>
+        </div>
+        <div class="build-card">
+          <span class="build-tag">Creative / editing</span>
+          <h3>The Workhorse</h3>
+          <ul class="build-specs">
+            <li><span>CPU</span><span>Intel i7, 8-core</span></li>
+            <li><span>RAM</span><span>32GB DDR4</span></li>
+            <li><span>Storage</span><span>1TB SSD + 2TB HDD</span></li>
+            <li><span>GPU</span><span>12GB, workstation-capable</span></li>
+          </ul>
+          <p class="build-note">Extra RAM and storage for video editing, large files, and multitasking.</p>
+        </div>
+      </div>
+      <p class="builds-foot">Exact specs vary build to build, since parts come from what's actually available. Email us your use case and we'll tell you what a good rebuilt system looks like for it.</p>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>How a build comes together</h2>
+        <div class="sub">Every system we sell goes through the same four steps.</div>
+      </div>
+      <div class="process-list">
+        <div class="process-item">
+          <div class="process-num">01</div>
+          <div>
+            <h3>Find the parts</h3>
+            <p>We watch listings for CPUs, GPUs, motherboards, RAM, storage, and cases that are priced fair and worth a second life.</p>
+          </div>
+        </div>
+        <div class="process-item">
+          <div class="process-num">02</div>
+          <div>
+            <h3>Test before it goes in a build</h3>
+            <p>Every part is checked on its own — power, temps, stability — before it's allowed anywhere near a customer's system.</p>
+          </div>
+        </div>
+        <div class="process-item">
+          <div class="process-num">03</div>
+          <div>
+            <h3>Match and assemble</h3>
+            <p>Parts get paired for real compatibility and balanced performance, then built into a clean, cable-managed system.</p>
+          </div>
+        </div>
+        <div class="process-item">
+          <div class="process-num">04</div>
+          <div>
+            <h3>Burn-in and hand off</h3>
+            <p>Finished builds run a stress test before they ever reach a buyer, so what you get is proven, not just assembled.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="areas">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Based in Michigan</h2>
+        <div class="sub">We buy, build, and hand off systems in and around these cities. Ask us about your area.</div>
+      </div>
+      <div class="areas-grid">
+        <div class="city-list">
+          <div class="city-row"><span>Grand Rapids</span><span>MI</span></div>
+          <div class="city-row"><span>Lansing</span><span>MI</span></div>
+          <div class="city-row"><span>Ann Arbor</span><span>MI</span></div>
+        </div>
+        <p style="color:var(--gray);font-size:0.95rem;">We don't run a storefront, so there's no walk-in address — everything starts with an email. Local pickup and drop-off can usually be arranged; if you're outside these three cities, ask and we'll figure out what's possible.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <div>
+        <h2>Want a custom system,<br>or just have a question?</h2>
+        <p>Tell us what you'll use it for and roughly what you want to spend. We'll tell you honestly whether a rebuilt system makes sense for you.</p>
+      </div>
+      <div class="contact-box">
+        <span class="mono">EMAIL US</span>
+        <a class="email" href="mailto:unrivaledcomputers@gmail.com">unrivaledcomputers@gmail.com</a>
+        <a class="btn btn-solid" href="mailto:unrivaledcomputers@gmail.com?subject=Custom%20build%20inquiry&body=Tell%20us%20what%20you%27ll%20use%20the%20computer%20for%2C%20your%20budget%2C%20and%20your%20city%3A">Email Unrivaled Systems</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div>Unrivaled Systems — rebuilt PCs from Michigan.</div>
+    <div style="display:flex;gap:20px;">
+      <a href="mailto:unrivaledcomputers@gmail.com">unrivaledcomputers@gmail.com</a>
+      <a href="[FACEBOOK_LINK_PLACEHOLDER]" target="_blank" rel="noopener">Facebook</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
