@@ -8,7 +8,10 @@
     --invert-fg:#0a0a0a;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
+  html{
+    scroll-behavior:smooth;
+    scroll-padding-top:96px;
+  }
   body{
     background:var(--bg);
     color:var(--fg);
@@ -122,6 +125,7 @@
   section{
     border-top:1px solid var(--line);
     padding:64px 0;
+    scroll-margin-top:96px;
   }
   .section-head{
     display:flex;
@@ -316,6 +320,9 @@
     border-color:var(--invert-fg);
     width:100%;
     text-align:center;
+  }
+  .contact-box .btn-solid + .btn-solid{
+    margin-top:12px;
   }
   .contact-box .btn-solid:hover{background:#2c2c2c;}
 
