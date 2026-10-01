@@ -81,11 +81,13 @@
   }
   .hero .wrap{
     display:grid;
-    grid-template-columns:1.1fr 0.9fr;
+    grid-template-columns:minmax(0,1.1fr) minmax(0,0.9fr);
     gap:48px;
     align-items:center;
   }
   .hero-copy{
+    position:relative;
+    z-index:2;
     text-align:left;
     max-width:640px;
     margin:0;
@@ -108,7 +110,35 @@
     flex-wrap:wrap;
     justify-content:flex-start;
   }
-  .hero-art{display:block;width:100%;max-width:280px;height:auto;margin:56px auto 0;}
+
+  /* Hero image (swaps every 4 seconds) */
+  .hero-image{
+    position:relative;
+    z-index:1;
+    min-width:0;
+    width:300px;
+    height:300px;
+    max-width:100%;   /* keeps it from overflowing on very small screens */
+    margin-left:auto; /* pushes it to the right side of the hero */
+    overflow:hidden;
+  }
+  .hero-image img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    display:block;
+    opacity:0;
+    transition:opacity 1s ease-in-out;
+  }
+
+  .hero-image img.active{
+    opacity:1;
+  }
+  
+
+  /* Buttons */
   .btn{
     display:inline-block;
     font-size:0.92rem;
@@ -121,6 +151,7 @@
   }
   .btn-solid:hover{background:#d8d8d6;}
   .btn-outline:hover{background:var(--fg);color:var(--bg);}
+
   /* ===== Section shell ===== */
   section{
     border-top:1px solid var(--line);
@@ -191,6 +222,7 @@
     display:flex;
     flex-direction:column;
   }
+  .build-card img{max-width:100%;height:auto;display:block;}
   .build-tag{
     font-family:'IBM Plex Mono',monospace;
     font-size:0.72rem;
@@ -308,7 +340,7 @@
   .contact-box .mono{color:#6b6b6b;display:block;margin-bottom:6px;}
   .contact-box .email{
     font-family:'Space Grotesk',sans-serif;
-    font-size:1.3em;
+    font-size:1.3rem;
     display:block;
     margin-bottom:24px;
     word-break:break-all;
@@ -345,11 +377,18 @@
   /* ===== Responsive ===== */
   @media (max-width:760px){
     .hero{padding-top:56px;}
-    .hero-art{max-width:200px;margin-top:40px;}
-    .mission-grid,.offer-grid,.areas-grid,.contact .wrap{grid-template-columns:1fr;}
+    .mission-grid,.offer-grid,.areas-grid,.contact .wrap,.hero .wrap{grid-template-columns:minmax(0,1fr);}
+
+    /* image sits under the text on phones, so fade top to bottom */
+    .hero-image{margin:0 auto;}
+    .hero-image::after{
+      background:linear-gradient(to bottom, var(--bg) 0%, rgba(10,10,10,0) 100%);
+    }
+
     .offer-grid{border:none;background:none;gap:24px;}
     .contact-box .email{font-size:1rem;}
 
+    /* horizontal scroller for Recent builds */
     .builds-grid{
       display:flex;
       gap:16px;
