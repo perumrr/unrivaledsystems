@@ -308,7 +308,7 @@
   .contact-box .mono{color:#6b6b6b;display:block;margin-bottom:6px;}
   .contact-box .email{
     font-family:'Space Grotesk',sans-serif;
-    font-size:1.3rem;
+    font-size:1.3em;
     display:block;
     margin-bottom:24px;
     word-break:break-all;
@@ -347,7 +347,25 @@
     .hero{padding-top:56px;}
     .hero-art{max-width:200px;margin-top:40px;}
     .mission-grid,.offer-grid,.areas-grid,.contact .wrap{grid-template-columns:1fr;}
-    .offer-grid,.builds-grid{border:none;background:none;gap:24px;}
+    .offer-grid{border:none;background:none;gap:24px;}
+    .contact-box .email{font-size:1rem;}
+
+    .builds-grid{
+      display:flex;
+      gap:16px;
+      border:none;
+      background:none;
+      overflow-x:auto;
+      overflow-y:hidden;
+      scroll-snap-type:x mandatory;
+      -webkit-overflow-scrolling:touch;
+      padding-bottom:12px;
+    }
+    .build-card{
+      flex:0 0 82%;
+      min-width:0;
+      scroll-snap-align:start;
+    }
     .offer-card,.build-card{border:1px solid var(--line);}
     nav{display:none;}
     .section-head{flex-direction:column;align-items:flex-start;}
